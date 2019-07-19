@@ -1,0 +1,26 @@
+{
+  "name": "xml-app",
+  "version": "1.0.0",
+  "description": "A web software for parsing excel workbook  sheets into XML files",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node -r esm server.js"
+  },
+  "keywords": [
+    "Excel",
+    "XML",
+    "Converter"
+  ],
+  "author": "Olanrewaju A. Olaboye",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "ejs": "^2.6.2",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "jsontoxml": "^1.0.1",
+    "mongodb": "^3.2.7",
+    "xlsx-to-json-lc": "^0.5.0"
+  }
+}
