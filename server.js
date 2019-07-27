@@ -12,28 +12,21 @@ dotenv.config();
 const app = express();
 const PORT = 9090 || process.env.PORT,
       ip = '127.0.0.2' || process.env.IP;
-const url = process.env.DATABASE_URL;
-// console.log(url);
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static('public'));
 app.set ('view engine', 'ejs');
 
-
 app.get('/', (req, res) => {
-
-})
-
-app.get('/generate', (req, res) => {
     res.render(
         'generate'
     );
 });
 
 // RESTFUL routes paths
-app.get('/generate', (req, res)=> {
-    // Grabbing the input excel sheets to convert to XML from the uploaded workbook 
-    var sheets = req.body.sheets;
+app.post('/generate', (req, res)=> {
+    // Grabbing the selected excel sheets to convert to XML from the uploaded workbook 
+    const sheets = Object.keys(req.body.sheets);
     for (var i=0; i<sheets.length ; i++) {
         const tedPath = 'TED/Daily TED Returns Array.xlsx';
         const name = sheets[i];
